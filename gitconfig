@@ -1,0 +1,16 @@
+[user]
+	name = Rahul Manne
+	email = rahul_manne@hotmail.com
+[color]
+	ui = true
+[color "decorate"]
+	head = bold white
+	branch = bold magenta
+	remotebranch = blue
+	tag = bold red
+[color "diff"]
+	whitespace = red reverse
+[push]
+	default = simple
+[core]
+	pager = less -F -X

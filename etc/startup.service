@@ -1,0 +1,16 @@
+[Unit]
+Description=Startup Script
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/powertop --auto-tune
+ExecStart=/usr/bin/bash -c 'echo XHC1 > /proc/acpi/wakeup'
+ExecStart=/usr/bin/bash -c 'echo LID0 > /proc/acpi/wakeup'
+ExecStart=/usr/bin/bash -c 'chmod a+w /sys/class/backlight/mba6x_backlight/brightness'
+ExecStart=/usr/bin/bash -c 'echo 70 > /sys/class/backlight/mba6x_backlight/brightness'
+ExecStart=/usr/bin/bash -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"
+ExecStart=/usr/bin/intel_gpu_frequency -c max=600
+
+[Install]
+WantedBy=multi-user.target
